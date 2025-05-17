@@ -1,1 +1,1 @@
-# Projeto-teoria-da-comput-o
+# Projeto-teoria-da-computação
