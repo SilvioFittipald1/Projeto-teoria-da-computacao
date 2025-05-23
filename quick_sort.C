@@ -1,13 +1,25 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
 
-// Função de troca
+#define TAMANHO_PEQUENO 10000
+#define TAMANHO_MEDIO   200000
+#define TAMANHO_GRANDE  1000000
+#define REPETICOES 30
+
+void gerar_vetor(int *v, int n) {
+    for (int i = 0; i < n; i++) {
+        v[i] = rand() % 1000000;
+    }
+}
+
 void troca(int v[], int i, int j) {
     int aux = v[i];
     v[i] = v[j];
     v[j] = aux;
 }
 
-// Função de partição (pivô é o primeiro elemento)
 int particao(int v[], int inicio, int fim) {
     int pivot = inicio;
     int indice = fim;
@@ -23,7 +35,6 @@ int particao(int v[], int inicio, int fim) {
     return indice;
 }
 
-// Função principal do Quick Sort
 void quick_sort(int v[], int inicio, int fim) {
     if (inicio < fim) {
         int p = particao(v, inicio, fim);
@@ -32,25 +43,65 @@ void quick_sort(int v[], int inicio, int fim) {
     }
 }
 
-// Função para imprimir vetor
-void imprime(int v[], int n) {
-    for (int i = 0; i < n; i++)
-        printf("%d ", v[i]);
-    printf("\n");
+double calcular_media(double tempos[], int n) {
+    double soma = 0.0;
+    for (int i = 0; i < n; i++) {
+        soma += tempos[i];
+    }
+    return soma / n;
 }
 
-// Exemplo de uso
+double calcular_desvio(double tempos[], int n, double media) {
+    double soma = 0.0;
+    for (int i = 0; i < n; i++) {
+        soma += pow(tempos[i] - media, 2);
+    }
+    return sqrt(soma / n);
+}
+
+void testar_quick_sort(int tamanho, const char *descricao) {
+    int *vetor = (int *)malloc(tamanho * sizeof(int));
+    if (!vetor) {
+        printf("Erro de alocação para tamanho %s (%d elementos)\n", descricao, tamanho);
+        return;
+    }
+
+    double tempos[REPETICOES];
+    double tempo_total = 0.0;
+
+    printf("===== Testando entrada %s (%d elementos) =====\n", descricao, tamanho);
+
+    for (int i = 0; i < REPETICOES; i++) {
+        gerar_vetor(vetor, tamanho);
+
+        clock_t ini = clock();
+        quick_sort(vetor, 0, tamanho - 1);
+        clock_t fim = clock();
+
+        double tempo = (double)(fim - ini) / CLOCKS_PER_SEC;
+        tempos[i] = tempo;
+        tempo_total += tempo;
+
+        printf("Execucao %02d concluida em %.4f segundos.\n", i + 1, tempo);
+    }
+
+    double media = calcular_media(tempos, REPETICOES);
+    double desvio = calcular_desvio(tempos, REPETICOES, media);
+
+    printf("\nTempo TOTAL: %.6f segundos\n", tempo_total);
+    printf("Tempo medio: %.6f segundos\n", media);
+    printf("Desvio padrao: %.6f\n", desvio);
+    printf("===============================================\n\n");
+
+    free(vetor);
+}
+
 int main() {
-    int v[] = {9, 4, 6, 2, 8, 1, 3};
-    int n = sizeof(v) / sizeof(v[0]);
+    srand(time(NULL));
 
-    printf("Vetor original:\n");
-    imprime(v, n);
-
-    quick_sort(v, 0, n - 1);
-
-    printf("Vetor ordenado:\n");
-    imprime(v, n);
+    testar_quick_sort(TAMANHO_PEQUENO, "pequena");
+    testar_quick_sort(TAMANHO_MEDIO, "media");
+    testar_quick_sort(TAMANHO_GRANDE, "grande");
 
     return 0;
 }

@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "quick_sort.C": "cpp"
+        "quick_sort.c": "c",
+        "quick_sort.C": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
