@@ -2,9 +2,9 @@ import random
 import time
 import statistics
 
-# Tamanhos de entrada
+
 TAMANHO_PEQUENO = 10000
-TAMANHO_MEDIO = 200000
+TAMANHO_MEDIO = 100000
 TAMANHO_GRANDE = 1000000
 REPETICOES = 30
 
