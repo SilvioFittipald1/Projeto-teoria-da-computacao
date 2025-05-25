@@ -1,12 +1,9 @@
 import random
 import time
-import statistics
-
 
 TAMANHO_PEQUENO = 10000
 TAMANHO_MEDIO = 200000
 TAMANHO_GRANDE = 1000000
-REPETICOES = 30
 
 def troca(v, i, j):
     v[i], v[j] = v[j], v[i]
@@ -32,32 +29,36 @@ def quick_sort(v, inicio, fim):
 def gerar_vetor(tamanho):
     return [random.randint(0, 1000000) for _ in range(tamanho)]
 
-def testar_quick_sort(tamanho, descricao):
-    tempos = []
+def main():
+    print("Escolha o tamanho da entrada:")
+    print(f"1 - Pequena ({TAMANHO_PEQUENO} elementos)")
+    print(f"2 - Média   ({TAMANHO_MEDIO} elementos)")
+    print(f"3 - Grande  ({TAMANHO_GRANDE} elementos)")
+    
+    opcao = input("Opção: ").strip()
+    
+    if opcao == '1':
+        tamanho = TAMANHO_PEQUENO
+        descricao = "pequena"
+    elif opcao == '2':
+        tamanho = TAMANHO_MEDIO
+        descricao = "média"
+    elif opcao == '3':
+        tamanho = TAMANHO_GRANDE
+        descricao = "grande"
+    else:
+        print("Opção inválida.")
+        return
 
-    print(f"===== Testando entrada {descricao} ({tamanho} elementos) =====")
+    vetor = gerar_vetor(tamanho)
+    print(f"Ordenando vetor de entrada {descricao} ({tamanho} elementos)...")
 
-    for i in range(REPETICOES):
-        vetor = gerar_vetor(tamanho)
+    ini = time.perf_counter()
+    quick_sort(vetor, 0, len(vetor) - 1)
+    fim = time.perf_counter()
 
-        ini = time.perf_counter()
-        quick_sort(vetor, 0, len(vetor) - 1)
-        fim = time.perf_counter()
-
-        tempo = fim - ini
-        tempos.append(tempo)
-        print(f"Execução {i + 1:02d} concluída em {tempo:.4f} segundos")
-
-    tempo_total = sum(tempos)
-    media = statistics.mean(tempos)
-    desvio = statistics.stdev(tempos)
-
-    print(f"\nTempo TOTAL: {tempo_total:.6f} segundos")
-    print(f"Tempo médio: {media:.6f} segundos")
-    print(f"Desvio padrão: {desvio:.6f}")
-    print("===============================================\n")
+    tempo = fim - ini
+    print(f"Tempo de execução: {tempo:.6f} segundos")
 
 if __name__ == "__main__":
-    testar_quick_sort(TAMANHO_PEQUENO, "pequena")
-    testar_quick_sort(TAMANHO_MEDIO, "média")
-    testar_quick_sort(TAMANHO_GRANDE, "grande")
+    main()

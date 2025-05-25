@@ -1,12 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <math.h>
 
 #define TAMANHO_PEQUENO 10000
 #define TAMANHO_MEDIO   200000
 #define TAMANHO_GRANDE  1000000
-#define REPETICOES 30
 
 void gerar_vetor(int *v, int n) {
     for (int i = 0; i < n; i++) {
@@ -43,65 +41,55 @@ void quick_sort(int v[], int inicio, int fim) {
     }
 }
 
-double calcular_media(double tempos[], int n) {
-    double soma = 0.0;
-    for (int i = 0; i < n; i++) {
-        soma += tempos[i];
-    }
-    return soma / n;
-}
-
-double calcular_desvio(double tempos[], int n, double media) {
-    double soma = 0.0;
-    for (int i = 0; i < n; i++) {
-        soma += pow(tempos[i] - media, 2);
-    }
-    return sqrt(soma / n);
-}
-
-void testar_quick_sort(int tamanho, const char *descricao) {
-    int *vetor = (int *)malloc(tamanho * sizeof(int));
-    if (!vetor) {
-        printf("Erro de alocação para tamanho %s (%d elementos)\n", descricao, tamanho);
-        return;
-    }
-
-    double tempos[REPETICOES];
-    double tempo_total = 0.0;
-
-    printf("===== Testando entrada %s (%d elementos) =====\n", descricao, tamanho);
-
-    for (int i = 0; i < REPETICOES; i++) {
-        gerar_vetor(vetor, tamanho);
-
-        clock_t ini = clock();
-        quick_sort(vetor, 0, tamanho - 1);
-        clock_t fim = clock();
-
-        double tempo = (double)(fim - ini) / CLOCKS_PER_SEC;
-        tempos[i] = tempo;
-        tempo_total += tempo;
-
-        printf("Execucao %02d concluida em %.4f segundos.\n", i + 1, tempo);
-    }
-
-    double media = calcular_media(tempos, REPETICOES);
-    double desvio = calcular_desvio(tempos, REPETICOES, media);
-
-    printf("\nTempo TOTAL: %.6f segundos\n", tempo_total);
-    printf("Tempo medio: %.6f segundos\n", media);
-    printf("Desvio padrao: %.6f\n", desvio);
-    printf("===============================================\n\n");
-
-    free(vetor);
-}
-
 int main() {
     srand(time(NULL));
 
-    testar_quick_sort(TAMANHO_PEQUENO, "pequena");
-    testar_quick_sort(TAMANHO_MEDIO, "media");
-    testar_quick_sort(TAMANHO_GRANDE, "grande");
+    int opcao, tamanho;
+    const char *descricao;
 
+    printf("Escolha o tamanho da entrada:\n");
+    printf("1 - Pequena (%d elementos)\n", TAMANHO_PEQUENO);
+    printf("2 - Media   (%d elementos)\n", TAMANHO_MEDIO);
+    printf("3 - Grande  (%d elementos)\n", TAMANHO_GRANDE);
+    printf("Opcao: ");
+    scanf("%d", &opcao);
+
+    switch (opcao) {
+        case 1:
+            tamanho = TAMANHO_PEQUENO;
+            descricao = "pequena";
+            break;
+        case 2:
+            tamanho = TAMANHO_MEDIO;
+            descricao = "media";
+            break;
+        case 3:
+            tamanho = TAMANHO_GRANDE;
+            descricao = "grande";
+            break;
+        default:
+            printf("Opcao invalida.\n");
+            return 1;
+    }
+
+    int *vetor = (int *)malloc(tamanho * sizeof(int));
+    if (!vetor) {
+        printf("Erro de alocacao de memoria.\n");
+        return 1;
+    }
+
+    gerar_vetor(vetor, tamanho);
+
+    printf("Ordenando vetor de entrada %s (%d elementos)...\n", descricao, tamanho);
+
+    clock_t ini = clock();
+    quick_sort(vetor, 0, tamanho - 1);
+    clock_t fim = clock();
+
+    double tempo = (double)(fim - ini) / CLOCKS_PER_SEC;
+
+    printf("Tempo de execucao: %.6f segundos\n", tempo);
+
+    free(vetor);
     return 0;
 }
