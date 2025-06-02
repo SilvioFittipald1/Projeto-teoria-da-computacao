@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <windows.h>
 
 #define TAMANHO_PEQUENO 10000
 #define TAMANHO_MEDIO   200000
@@ -82,11 +83,13 @@ int main() {
 
     printf("Ordenando vetor de entrada %s (%d elementos)...\n", descricao, tamanho);
 
-    clock_t ini = clock();
+    LARGE_INTEGER freq, ini, fim;
+    QueryPerformanceFrequency(&freq);
+    QueryPerformanceCounter(&ini);
     quick_sort(vetor, 0, tamanho - 1);
-    clock_t fim = clock();
+    QueryPerformanceCounter(&fim);
+    double tempo = (double)(fim.QuadPart - ini.QuadPart) / freq.QuadPart;
 
-    double tempo = (double)(fim - ini) / CLOCKS_PER_SEC;
 
     printf("Tempo de execucao: %.6f segundos\n", tempo);
 

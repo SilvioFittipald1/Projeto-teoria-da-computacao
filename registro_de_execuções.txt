@@ -1,0 +1,241 @@
+-----------------------------------------------------------------------
+Execuções em C:
+
+Entrada pequena (10.000):
+
+Execução 1- 0.001375 segundos
+Execução 2- 0.001341 segundos
+Execução 3- 0.001396 segundos
+Execução 4- 0.001386 segundos
+Execução 5- 0.001370 segundos
+Execução 6- 0.001381 segundos 
+Execução 7- 0.001399 segundos
+Execução 8- 0.001377 segundos
+Execução 9- 0.001382 segundos
+Execução 10- 0.001312 segundos
+Execução 11- 0.001337 segundos
+Execução 12- 0.001389 segundos
+Execução 13- 0.001352 segundos
+Execução 14- 0.001337 segundos
+Execução 15- 0.001388 segundos
+Execução 16- 0.001298 segundos
+Execução 17- 0.001385 segundos
+Execução 18- 0.001386 segundos
+Execução 19- 0.001359 segundos
+Execução 20- 0.001386 segundos
+Execução 21- 0.001372 segundos
+Execução 22- 0.001408 segundos
+Execução 23- 0.001355 segundos
+Execução 24- 0.001372 segundos
+Execução 25- 0.001330 segundos
+Execução 26- 0.001433 segundos
+Execução 27- 0.001404 segundos
+Execução 28- 0.001375 segundos
+Execução 29- 0.001365 segundos
+Execução 30- 0.001361 segundos
+
+Média: 0.001370
+Desvio padrão: 0.000029
+
+Entrada média (200.000): 
+
+Execução 1- 0.034793 segundos
+Execução 2- 0.035359 segundos
+Execução 3- 0.041118 segundos
+Execução 4- 0.034746 segundos
+Execução 5- 0.035595 segundos
+Execução 6- 0.036114 segundos 
+Execução 7- 0.034713 segundos
+Execução 8- 0.035540 segundos
+Execução 9- 0.030160 segundos
+Execução 10- 0.033169 segundos
+Execução 11- 0.049651 segundos
+Execução 12- 0.054658 segundos
+Execução 13- 0.041438 segundos
+Execução 14- 0.027730 segundos
+Execução 15- 0.039180 segundos
+Execução 16- 0.029138 segundos
+Execução 17- 0.034490 segundos
+Execução 18- 0.029992 segundos
+Execução 19- 0.035149 segundos
+Execução 20- 0.031705 segundos
+Execução 21- 0.029618 segundos
+Execução 22- 0.030502 segundos
+Execução 23- 0.035215 segundos
+Execução 24- 0.039381 segundos
+Execução 25- 0.023674 segundos
+Execução 26- 0.034709 segundos
+Execução 27- 0.021698 segundos
+Execução 28- 0.032307 segundos
+Execução 29- 0.035486 segundos
+Execução 30- 0.035404 segundos
+
+Média: 0.034369
+Desvio padrão: 0.006303
+
+Entrada grande (1.000.000):
+
+Execução 1- 0.149308  segundos
+Execução 2- 0.150588 segundos
+Execução 3- 0.168500 segundos
+Execução 4- 0.134972 segundos
+Execução 5- 0.134010 segundos
+Execução 6- 0.164095 segundos 
+Execução 7- 0.136156 segundos
+Execução 8- 0.156788 segundos
+Execução 9- 0.148149 segundos
+Execução 10- 0.158845 segundos
+Execução 11- 0.170321 segundos
+Execução 12- 0.165066 segundos
+Execução 13- 0.133264 segundos
+Execução 14- 0.141660 segundos
+Execução 15- 0.153871 segundos
+Execução 16- 0.145085 segundos
+Execução 17- 0.131066 segundos
+Execução 18- 0.165138 segundos
+Execução 19- 0.134380 segundos
+Execução 20- 0.178294 segundos
+Execução 21- 0.133847 segundos
+Execução 22- 0.138417 segundos
+Execução 23- 0.179129 segundos
+Execução 24- 0.128105 segundos
+Execução 25- 0.150043 segundos
+Execução 26- 0.161055 segundos
+Execução 27- 0.185245 segundos
+Execução 28- 0.154587 segundos
+Execução 29- 0.216045 segundos
+Execução 30- 0.160913 segundos
+
+Média: 0.154231
+Desvio padrão: 0.019525
+
+
+++++++++++++++++++++++
+Média geral:  0.063323 
+Desvio padrão geral:  0.080439 
+++++++++++++++++++++++
+
+
+-----------------------------------------------------------------------
+
+=======================================================================
+Execuções em Python:
+
+Entrada pequena (10.000):
+
+Execução 1- 0.016582 segundos
+Execução 2- 0.012618 segundos
+Execução 3- 0.015852 segundos
+Execução 4- 0.016618 segundos
+Execução 5- 0.015066 segundos
+Execução 6- 0.015051 segundos 
+Execução 7- 0.017020 segundos
+Execução 8- 0.015525 segundos
+Execução 9- 0.015098 segundos
+Execução 10- 0.011883 segundos
+Execução 11- 0.015898 segundos
+Execução 12- 0.012641 segundos
+Execução 13- 0.014091 segundos
+Execução 14- 0.013238 segundos
+Execução 15- 0.015588 segundos
+Execução 16- 0.017205 segundos
+Execução 17- 0.016934 segundos
+Execução 18- 0.015888 segundos
+Execução 19- 0.015512 segundos
+Execução 20- 0.015121 segundos
+Execução 21- 0.014467 segundos
+Execução 22- 0.015212 segundos
+Execução 23- 0.015601 segundos
+Execução 24- 0.015128 segundos
+Execução 25- 0.015497 segundos
+Execução 26- 0.015119 segundos
+Execução 27- 0.015454 segundos
+Execução 28- 0.011047 segundos
+Execução 29- 0.012199 segundos
+Execução 30- 0.016592 segundos
+
+Média: 0.014918
+Desvio padrão: 0.001535
+
+Entrada média (200.000):
+
+Execução 1- 0.266659 segundos
+Execução 2- 0.298736 segundos
+Execução 3- 0.258541 segundos
+Execução 4- 0.261223 segundos
+Execução 5- 0.236634 segundos
+Execução 6- 0.244671 segundos 
+Execução 7- 0.259433 segundos
+Execução 8- 0.248966 segundos
+Execução 9- 0.218257 segundos
+Execução 10- 0.226893 segundos
+Execução 11- 0.326304 segundos
+Execução 12- 0.290711 segundos
+Execução 13- 0.314848 segundos
+Execução 14- 0.260559 segundos
+Execução 15- 0.348482 segundos
+Execução 16- 0.278193 segundos
+Execução 17- 0.258640 segundos
+Execução 18- 0.263192 segundos
+Execução 19- 0.344588 segundos
+Execução 20- 0.278078 segundos
+Execução 21- 0.266248 segundos
+Execução 22- 0.264942 segundos
+Execução 23- 0.317330 segundos
+Execução 24- 0.293021 segundos
+Execução 25- 0.259318 segundos
+Execução 26- 0.300243 segundos
+Execução 27- 0.300964 segundos
+Execução 28- 0.259775 segundos
+Execução 29- 0.228632 segundos
+Execução 30- 0.270388 segundos
+
+Média: 0.271255
+Desvio padrão: 0.030098
+
+Entrada grande (1.000.000):
+
+Execução 1- 1.542955 segundos
+Execução 2- 1.635585 segundos
+Execução 3- 1.617524 segundos
+Execução 4- 1.597355 segundos
+Execução 5- 1.596936 segundos
+Execução 6- 1.795219 segundos 
+Execução 7- 1.689218 segundos
+Execução 8- 1.732929 segundos
+Execução 9- 1.663890 segundos
+Execução 10- 1.507995 segundos
+Execução 11- 1.648303 segundos
+Execução 12- 1.614076 segundos
+Execução 13- 1.755581 segundos
+Execução 14- 1.656144 segundos
+Execução 15- 1.604378 segundos
+Execução 16- 1.568398 segundos
+Execução 17- 1.643656 segundos
+Execução 18- 1.584307 segundos
+Execução 19- 1.845296 segundos
+Execução 20- 1.660990 segundos
+Execução 21- 1.622092 segundos
+Execução 22- 1.556414 segundos
+Execução 23- 1.650243 segundos
+Execução 24- 1.645481 segundos
+Execução 25- 1.753417 segundos
+Execução 26- 1.439255 segundos
+Execução 27- 1.553934 segundos
+Execução 28- 1.753053 segundos
+Execução 29- 1.357951 segundos
+Execução 30- 1.646370 segundos
+
+Média: 1.624891
+Desvio padrão: 0.099409
+
+
+++++++++++++++++++++++
+Média geral: 0.637021 
+Desvio padrão geral: 0.865068 
+++++++++++++++++++++++
+
+
+=======================================================================
+
+obs: muitos desses valores são aproximados
